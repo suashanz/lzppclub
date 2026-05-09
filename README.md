@@ -11,7 +11,7 @@
 ```
 lzppclub/
 │
-├── index.html          ← Trang chính
+├── index.html          ← Trang chínhh
 ├── style.css           ← Toàn bộ CSS + animation
 ├── script.js           ← Dữ liệu thành viên + logic JS
 ├── README.md           ← File này

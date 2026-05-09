@@ -31,91 +31,76 @@
 ================================================================ */
 const members = [
   {
-    name: "Thành Viên 1",
-    birthday: "01/01/2000",
-    color: "#ff6bbd",          /* Màu hồng neon */
-    /*
-     * ╔══════════════════════════════════════╗
-     * ║  ⚠️  THAY LINK TIKTOK TẠI ĐÂY  ⚠️  ║
-     * ╚══════════════════════════════════════╝
-     */
-    tiktokUrl: "https://www.tiktok.com/@username1",
-    /*
-     * ╔══════════════════════════════════════╗
-     * ║  ⚠️  THAY LINK NHẠC TẠI ĐÂY    ⚠️  ║
-     * ╚══════════════════════════════════════╝
-     */
-    audioUrl: "assets/audio/member1.mp3",
-    /*
-     * ╔══════════════════════════════════════╗
-     * ║  ⚠️  THAY LINK ẢNH TẠI ĐÂY     ⚠️  ║
-     * ╚══════════════════════════════════════╝
-     */
-    imageUrl: "assets/images/member1.jpg",
+    name: "SOLEIA",
+    birthday: "08/11/2007",
+    color: "#CC6600",        
+    tiktokUrl: "https://www.tiktok.com/@suashanz",
+    audioUrl: "https://drive.google.com/file/d/19qo-n8gBMdUUoE9c35Hjt-58XwFnGTOu/view?usp=sharing",
+    imageUrl: "https://image-1.uhdpaper.com/wallpaper/stray-kids-han-maniac-hd-wallpaper-uhdpaper.com-120@1@g.jpg",
   },
   {
-    name: "Thành Viên 2",
-    birthday: "02/02/2001",
-    color: "#ffaa5c",          /* Màu cam ấm */
-    tiktokUrl: "https://www.tiktok.com/@username2",   /* THAY LINK TIKTOK TẠI ĐÂY */
-    audioUrl:  "assets/audio/member2.mp3",            /* THAY LINK NHẠC TẠI ĐÂY   */
-    imageUrl:  "assets/images/member2.jpg",           /* THAY LINK ẢNH TẠI ĐÂY    */
+    name: "FURAII",
+    birthday: "18/04/2008",
+    color: "#ff6bbd",          /* Màu hồng */
+    tiktokUrl: "https://www.tiktok.com/@fu_furaii_garnet",  
+    audioUrl:  "assets/audio/member2.mp3",          
+    imageUrl:  "assets/images/member2.jpg",           
   },
   {
-    name: "Thành Viên 3",
-    birthday: "03/03/2002",
-    color: "#5cc8ff",          /* Màu xanh dương */
-    tiktokUrl: "https://www.tiktok.com/@username3",   /* THAY LINK TIKTOK TẠI ĐÂY */
-    audioUrl:  "assets/audio/member3.mp3",            /* THAY LINK NHẠC TẠI ĐÂY   */
-    imageUrl:  "assets/images/member3.jpg",           /* THAY LINK ẢNH TẠI ĐÂY    */
+    name: "SHUNA",
+    birthday: "05/08/2008",
+    color: "#5cc8ff",          /* Màu xanh lá */
+    tiktokUrl: "https://www.tiktok.com/@sa_8528",  
+    audioUrl:  "assets/audio/member3.mp3",            
+    imageUrl:  "assets/images/member3.jpg",          
   },
   {
-    name: "Thành Viên 4",
-    birthday: "04/04/2001",
-    color: "#a9e34b",          /* Màu xanh lá lime */
-    tiktokUrl: "https://www.tiktok.com/@username4",   /* THAY LINK TIKTOK TẠI ĐÂY */
-    audioUrl:  "assets/audio/member4.mp3",            /* THAY LINK NHẠC TẠI ĐÂY   */
-    imageUrl:  "assets/images/member4.jpg",           /* THAY LINK ẢNH TẠI ĐÂY    */
+    name: "HYORI",
+    birthday: "14/08/2010",
+    color: "#a9e34b",          /* Màu đỏ */
+    tiktokUrl: "https://www.tiktok.com/@little.redbear_",  
+    audioUrl:  "assets/audio/member4.mp3",           
+    imageUrl:  "assets/images/member4.jpg",           
   },
   {
-    name: "Thành Viên 5",
-    birthday: "05/05/2000",
-    color: "#da77f2",          /* Màu tím violet */
-    tiktokUrl: "https://www.tiktok.com/@username5",   /* THAY LINK TIKTOK TẠI ĐÂY */
-    audioUrl:  "assets/audio/member5.mp3",            /* THAY LINK NHẠC TẠI ĐÂY   */
-    imageUrl:  "assets/images/member5.jpg",           /* THAY LINK ẢNH TẠI ĐÂY    */
+    name: "ERI",
+    birthday: "02/10/2008",
+    color: "C0C0C0",   
+    tiktokUrl: "https://www.tiktok.com/@eriisjusteri",   
+    audioUrl:  "assets/audio/member5.mp3",            
+    imageUrl:  "assets/images/member5.jpg",         
   },
   {
-    name: "Thành Viên 6",
+    name: "YINYIN",
     birthday: "06/06/2002",
     color: "#2ee8c0",          /* Màu xanh mint */
-    tiktokUrl: "https://www.tiktok.com/@username6",   /* THAY LINK TIKTOK TẠI ĐÂY */
-    audioUrl:  "assets/audio/member6.mp3",            /* THAY LINK NHẠC TẠI ĐÂY   */
-    imageUrl:  "assets/images/member6.jpg",           /* THAY LINK ẢNH TẠI ĐÂY    */
+    tiktokUrl: "https://www.tiktok.com/@username6",   
+    audioUrl:  "assets/audio/member6.mp3",            
+    imageUrl:  "assets/images/member6.jpg",           
   },
   {
-    name: "Thành Viên 7",
+    name: "HONGGIE",
     birthday: "07/07/2001",
     color: "#ff8787",          /* Màu đỏ san hô */
-    tiktokUrl: "https://www.tiktok.com/@username7",   /* THAY LINK TIKTOK TẠI ĐÂY */
-    audioUrl:  "assets/audio/member7.mp3",            /* THAY LINK NHẠC TẠI ĐÂY   */
-    imageUrl:  "assets/images/member7.jpg",           /* THAY LINK ẢNH TẠI ĐÂY    */
+    tiktokUrl: "https://www.tiktok.com/@username7",  
+    audioUrl:  "assets/audio/member7.mp3",          
+    imageUrl:  "assets/images/member7.jpg",        
   },
   {
-    name: "Thành Viên 8",
+    name: "CHAR",
     birthday: "08/08/2000",
     color: "#ffd43b",          /* Màu vàng mật ong */
-    tiktokUrl: "https://www.tiktok.com/@username8",   /* THAY LINK TIKTOK TẠI ĐÂY */
-    audioUrl:  "assets/audio/member8.mp3",            /* THAY LINK NHẠC TẠI ĐÂY   */
-    imageUrl:  "assets/images/member8.jpg",           /* THAY LINK ẢNH TẠI ĐÂY    */
+    tiktokUrl: "https://www.tiktok.com/@username8",  
+    audioUrl:  "assets/audio/member8.mp3",        
+    imageUrl:  "assets/images/member8.jpg",      
   },
   {
     name: "Thành Viên 9",
     birthday: "09/09/2003",
     color: "#74b0ff",          /* Màu xanh sky */
-    tiktokUrl: "https://www.tiktok.com/@username9",   /* THAY LINK TIKTOK TẠI ĐÂY */
-    audioUrl:  "assets/audio/member9.mp3",            /* THAY LINK NHẠC TẠI ĐÂY   */
-    imageUrl:  "assets/images/member9.jpg",           /* THAY LINK ẢNH TẠI ĐÂY    */
+    tiktokUrl: "https://www.tiktok.com/@username9", 
+    audioUrl:  "assets/audio/member9.mp3",        
+    imageUrl:  "assets/images/member9.jpg",        
   },
 ];
 
@@ -126,9 +111,6 @@ const members = [
 let activeAudio   = null;  /* Đối tượng Audio đang phát         */
 let activeCardEl  = null;  /* Card DOM element đang ở trạng thái playing */
 
-/* ================================================================
-   SVG ICONS (inline – tránh phụ thuộc thư viện ngoài)
-================================================================ */
 const ICON_TIKTOK = `
   <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5
@@ -166,23 +148,16 @@ const WAVE_BARS = `
     <span class="bar"></span>
   </div>`;
 
-/* ================================================================
-   HÀM: renderMembers()
-   Tạo HTML cho tất cả card thành viên và inject vào #membersList
-   Được gọi 1 lần khi DOM sẵn sàng
-================================================================ */
 function renderMembers() {
   const listEl = document.getElementById("membersList");
   if (!listEl) return;
 
-  /* Placeholder ảnh khi URL bị lỗi – dùng màu chủ đạo của thành viên */
   const fallbackImg = (name, color) => {
     const bg    = encodeURIComponent(color.replace("#", ""));
     const label = encodeURIComponent(name);
     return `https://placehold.co/600x260/${bg}/ffffff?text=${label}`;
   };
 
-  /* Tạo HTML cho 1 card thành viên */
   const buildCard = (member, index) => `
     <article
       class="member-card"
@@ -376,7 +351,6 @@ function initCommentForm() {
   if (!form || !successMsg) return;
 
   form.addEventListener("submit", async (event) => {
-    /* Ngăn form submit kiểu truyền thống (gây reload trang) */
     event.preventDefault();
 
     const submitBtn  = form.querySelector(".submit-btn");
@@ -421,6 +395,6 @@ function initCommentForm() {
    ENTRY POINT – Chạy khi DOM đã load xong
 ================================================================ */
 document.addEventListener("DOMContentLoaded", () => {
-  renderMembers();    /* 1. Render toàn bộ card thành viên          */
-  initCommentForm();  /* 2. Khởi tạo logic gửi form comment         */
+  renderMembers();    
+  initCommentForm();  
 });

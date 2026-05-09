@@ -1,12 +1,4 @@
-/* ================================================================
-   style.css – LZPPClub Website
-   Phong cách: Minimalist Dark + Rainbow Mesh Gradient Blobs
-   Mobile-first | GitHub Pages ready
-================================================================ */
 
-/* ----------------------------------------------------------------
-   1. CSS VARIABLES & RESET
----------------------------------------------------------------- */
 :root {
   /* Màu nền & văn bản */
   --bg:           #09090f;   /* Đen đậm, hơi xanh navy */
@@ -58,11 +50,7 @@ img { display: block; max-width: 100%; }
 a   { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-/* ----------------------------------------------------------------
-   2. ANIMATED MESH GRADIENT BLOBS (BACKGROUND)
-   Mỗi blob là một vòng tròn màu với blur cực lớn,
-   di chuyển chậm theo các keyframe khác nhau
----------------------------------------------------------------- */
+
 .bg-canvas {
   position: fixed;
   inset: 0;
@@ -166,9 +154,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   100% { transform: translate(-80px, -90px) scale(0.9); }
 }
 
-/* ----------------------------------------------------------------
-   3. HEADER
----------------------------------------------------------------- */
+
 .site-header {
   position: relative;
   z-index: 10;
@@ -288,9 +274,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: translateY(-1px);
 }
 
-/* ----------------------------------------------------------------
-   4. SECTION TITLES
----------------------------------------------------------------- */
+
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 5vw, 2rem);
@@ -315,9 +299,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   opacity: 0.7;
 }
 
-/* ----------------------------------------------------------------
-   5. MEMBERS SECTION
----------------------------------------------------------------- */
+
 .members-section {
   position: relative;
   z-index: 10;
@@ -333,9 +315,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 0 0 1rem;
 }
 
-/* ----------------------------------------------------------------
-   6. MEMBER CARD
----------------------------------------------------------------- */
+
 .member-card {
   width: var(--card-width);
   max-width: 680px;
@@ -362,7 +342,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     0 20px 60px -20px rgba(0,0,0,0.6);
 }
 
-/* Khi đang phát nhạc – viền sáng lên theo màu chủ đạo */
+
 .member-card.playing {
   border-color: color-mix(in srgb, var(--member-color) 60%, transparent);
   box-shadow:
@@ -388,12 +368,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
   transition: transform 0.5s var(--ease-soft);
 
-  /*
-   * ── HIỆU ỨNG MỜ DẦN 2 CẠnh TRÁI / PHẢI ──────────────────────
-   * Sử dụng CSS mask-image với linear-gradient để ảnh
-   * tự nhiên hòa quyện vào nền card ở cả hai phía
-   * Không cần thêm div overlay – chỉ thuần CSS
-   */
+
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -443,10 +418,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.2;
 }
 
-/* ----------------------------------------------------------------
-   7. WAVE VISUALIZER (Sóng nhạc)
-   5 thanh bar chỉ animate khi card có class .playing
----------------------------------------------------------------- */
+
 .wave-visualizer {
   display: flex;
   align-items: flex-end;
@@ -674,9 +646,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: translateY(0);
 }
 
-/* ----------------------------------------------------------------
-   9. FOOTER
----------------------------------------------------------------- */
+
 .site-footer {
   position: relative;
   z-index: 10;
@@ -698,9 +668,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-top: 0.25rem;
 }
 
-/* ----------------------------------------------------------------
-   10. RESPONSIVE – Tablet trở lên (≥ 540px)
----------------------------------------------------------------- */
+
 @media (min-width: 540px) {
   .blob { opacity: 0.5; }
 
@@ -718,9 +686,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .card-actions  { flex: 0 0 auto; margin-top: 0; }
 }
 
-/* ----------------------------------------------------------------
-   11. RESPONSIVE – Desktop (≥ 768px)
----------------------------------------------------------------- */
+
 @media (min-width: 768px) {
   :root { --card-width: 88%; }
 
@@ -733,9 +699,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .blob-3 { width: 480px; height: 480px; }
 }
 
-/* ----------------------------------------------------------------
-   12. ACCESSIBILITY – Không chơi animation nếu user cài đặt vậy
----------------------------------------------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
   .blob,
   .wave-visualizer .bar,

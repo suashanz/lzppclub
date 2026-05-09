@@ -1,0 +1,748 @@
+/* ================================================================
+   style.css – LZPPClub Website
+   Phong cách: Minimalist Dark + Rainbow Mesh Gradient Blobs
+   Mobile-first | GitHub Pages ready
+================================================================ */
+
+/* ----------------------------------------------------------------
+   1. CSS VARIABLES & RESET
+---------------------------------------------------------------- */
+:root {
+  /* Màu nền & văn bản */
+  --bg:           #09090f;   /* Đen đậm, hơi xanh navy */
+  --bg-card:      rgba(255, 255, 255, 0.035);
+  --bg-card-hover:rgba(255, 255, 255, 0.06);
+  --border:       rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --text-primary: #f0eff5;
+  --text-muted:   rgba(240, 239, 245, 0.45);
+  --text-dim:     rgba(240, 239, 245, 0.25);
+
+  /* Font */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Outfit', sans-serif;
+
+  /* Layout */
+  --card-width: 92%;
+  --section-gap: 5rem;
+  --card-radius: 20px;
+
+  /* Transition */
+  --ease: cubic-bezier(0.22, 0.68, 0, 1.2);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img { display: block; max-width: 100%; }
+a   { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ----------------------------------------------------------------
+   2. ANIMATED MESH GRADIENT BLOBS (BACKGROUND)
+   Mỗi blob là một vòng tròn màu với blur cực lớn,
+   di chuyển chậm theo các keyframe khác nhau
+---------------------------------------------------------------- */
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Base cho tất cả blob */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.45;
+  filter: blur(90px);
+  will-change: transform;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Blob 1 – Hồng neon (trên trái) */
+.blob-1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, #ff6bbd 0%, transparent 70%);
+  top: -10%; left: -10%;
+  animation: blobFloat1 18s infinite alternate ease-in-out;
+}
+
+/* Blob 2 – Cam ấm (trên phải) */
+.blob-2 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, #ffaa5c 0%, transparent 70%);
+  top: -5%; right: -8%;
+  animation: blobFloat2 22s infinite alternate ease-in-out;
+}
+
+/* Blob 3 – Xanh dương (giữa trái) */
+.blob-3 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, #5cc8ff 0%, transparent 70%);
+  top: 35%; left: -15%;
+  animation: blobFloat3 20s infinite alternate ease-in-out;
+}
+
+/* Blob 4 – Xanh mint (giữa phải) */
+.blob-4 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, #5fffd4 0%, transparent 70%);
+  top: 45%; right: -10%;
+  animation: blobFloat4 25s infinite alternate ease-in-out;
+}
+
+/* Blob 5 – Tím lavender (dưới trái) */
+.blob-5 {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, #c084fc 0%, transparent 70%);
+  bottom: 5%; left: 10%;
+  animation: blobFloat5 19s infinite alternate ease-in-out;
+}
+
+/* Blob 6 – Vàng nhạt (dưới phải) */
+.blob-6 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, #fde68a 0%, transparent 70%);
+  bottom: -5%; right: 5%;
+  animation: blobFloat6 23s infinite alternate ease-in-out;
+}
+
+/* Keyframes di chuyển blob – mỗi blob đi theo đường khác nhau */
+@keyframes blobFloat1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(60px, 80px) scale(1.1); }
+  66%  { transform: translate(30px, 140px) scale(0.95); }
+  100% { transform: translate(100px, 60px) scale(1.05); }
+}
+@keyframes blobFloat2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  40%  { transform: translate(-80px, 60px) scale(1.08); }
+  80%  { transform: translate(-40px, 120px) scale(0.92); }
+  100% { transform: translate(-100px, 80px) scale(1.1); }
+}
+@keyframes blobFloat3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(90px, -50px) scale(1.12); }
+  100% { transform: translate(50px, 80px) scale(0.9); }
+}
+@keyframes blobFloat4 {
+  0%   { transform: translate(0, 0) scale(1); }
+  35%  { transform: translate(-70px, -40px) scale(1.06); }
+  70%  { transform: translate(-120px, 30px) scale(0.94); }
+  100% { transform: translate(-60px, -80px) scale(1.08); }
+}
+@keyframes blobFloat5 {
+  0%   { transform: translate(0, 0) scale(1); }
+  45%  { transform: translate(80px, -60px) scale(1.1); }
+  100% { transform: translate(40px, -100px) scale(0.95); }
+}
+@keyframes blobFloat6 {
+  0%   { transform: translate(0, 0) scale(1); }
+  55%  { transform: translate(-60px, -50px) scale(1.15); }
+  100% { transform: translate(-80px, -90px) scale(0.9); }
+}
+
+/* ----------------------------------------------------------------
+   3. HEADER
+---------------------------------------------------------------- */
+.site-header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 5rem 1.5rem 3rem;
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Dòng chữ nhỏ phía trên */
+.header-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Tên team chính */
+.site-title {
+  font-family: var(--font-display);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+  line-height: 1;
+}
+
+.title-main {
+  font-size: clamp(3.5rem, 14vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  /* Gradient text – rainbow loang lổ */
+  background: linear-gradient(
+    135deg,
+    #ff79c6 0%,
+    #ffb86c 20%,
+    #f1fa8c 40%,
+    #50fa7b 55%,
+    #8be9fd 70%,
+    #bd93f9 85%,
+    #ff79c6 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradientShift 6s linear infinite;
+}
+
+.title-sub {
+  font-size: clamp(1rem, 4vw, 1.6rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Tagline */
+.site-tagline {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* Row meta: badge + link TikTok */
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.founded-badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.3em 0.85em;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+}
+
+/* Nút TikTok chính của team */
+.tiktok-main-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border);
+  padding: 0.35em 1em;
+  border-radius: 999px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.tiktok-main-link:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+/* ----------------------------------------------------------------
+   4. SECTION TITLES
+---------------------------------------------------------------- */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Đường kẻ trang trí dưới title */
+.section-title-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ff79c6, #bd93f9);
+  opacity: 0.7;
+}
+
+/* ----------------------------------------------------------------
+   5. MEMBERS SECTION
+---------------------------------------------------------------- */
+.members-section {
+  position: relative;
+  z-index: 10;
+  padding: 0 0 var(--section-gap);
+}
+
+/* Danh sách card – căn giữa, xếp dọc */
+.members-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 0 1rem;
+}
+
+/* ----------------------------------------------------------------
+   6. MEMBER CARD
+---------------------------------------------------------------- */
+.member-card {
+  width: var(--card-width);
+  max-width: 680px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform 0.35s var(--ease),
+    border-color 0.3s,
+    box-shadow 0.35s;
+  /* Glow mờ dùng màu chủ đạo của thành viên (set bởi JS) */
+  --member-color: #ffffff;
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06),
+    0 8px 40px -10px color-mix(in srgb, var(--member-color) 40%, transparent),
+    0 20px 60px -20px rgba(0,0,0,0.6);
+}
+
+/* Khi đang phát nhạc – viền sáng lên theo màu chủ đạo */
+.member-card.playing {
+  border-color: color-mix(in srgb, var(--member-color) 60%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--member-color) 30%, transparent),
+    0 0 30px -5px color-mix(in srgb, var(--member-color) 40%, transparent),
+    0 20px 60px -20px rgba(0,0,0,0.5);
+}
+
+/* --- ẢNH ĐẠI DIỆN --- */
+.card-image-wrap {
+  width: 100%;
+  /* Chiều cao ảnh: tỉ lệ 16:9 → padding trick */
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top; /* Ưu tiên hiện phần đầu/mặt */
+  display: block;
+  transition: transform 0.5s var(--ease-soft);
+
+  /*
+   * ── HIỆU ỨNG MỜ DẦN 2 CẠnh TRÁI / PHẢI ──────────────────────
+   * Sử dụng CSS mask-image với linear-gradient để ảnh
+   * tự nhiên hòa quyện vào nền card ở cả hai phía
+   * Không cần thêm div overlay – chỉ thuần CSS
+   */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,0.6) 10%,
+    black 22%,
+    black 78%,
+    rgba(0,0,0,0.6) 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,0.6) 10%,
+    black 22%,
+    black 78%,
+    rgba(0,0,0,0.6) 90%,
+    transparent 100%
+  );
+}
+
+.member-card:hover .card-image {
+  transform: scale(1.04);
+}
+
+/* --- THÔNG TIN THẺ --- */
+.card-info {
+  padding: 0.9rem 1.2rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Hàng tên + wave visualizer */
+.card-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.card-name {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* ----------------------------------------------------------------
+   7. WAVE VISUALIZER (Sóng nhạc)
+   5 thanh bar chỉ animate khi card có class .playing
+---------------------------------------------------------------- */
+.wave-visualizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  opacity: 0;               /* Ẩn mặc định */
+  transform: scale(0.8);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+/* Khi đang phát → hiện lên */
+.member-card.playing .wave-visualizer {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wave-visualizer .bar {
+  display: block;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--member-color, #ff79c6);
+  /* Mặc định không animate */
+  height: 4px;
+  animation: none;
+}
+
+/* Chỉ animate bar khi card đang phát */
+.member-card.playing .wave-visualizer .bar {
+  animation: waveBar 0.8s ease-in-out infinite alternate;
+}
+
+/* Mỗi bar có delay khác nhau → sóng lệch pha đẹp */
+.member-card.playing .wave-visualizer .bar:nth-child(1) { animation-delay: 0.0s; }
+.member-card.playing .wave-visualizer .bar:nth-child(2) { animation-delay: 0.15s; }
+.member-card.playing .wave-visualizer .bar:nth-child(3) { animation-delay: 0.05s; }
+.member-card.playing .wave-visualizer .bar:nth-child(4) { animation-delay: 0.2s; }
+.member-card.playing .wave-visualizer .bar:nth-child(5) { animation-delay: 0.1s; }
+
+@keyframes waveBar {
+  0%   { height: 3px;  opacity: 0.5; }
+  100% { height: 18px; opacity: 1; }
+}
+
+/* --- META (ngày sinh + chấm màu) --- */
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card-birthday {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Chấm tròn màu chủ đạo của thành viên */
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px 1px currentColor;
+  /* màu set bởi inline style trong JS */
+}
+
+/* --- ACTION BUTTONS (TikTok & Audio) --- */
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.15rem;
+}
+
+/* Base style chung cho cả 2 nút */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.2s var(--ease);
+  flex-shrink: 0;
+}
+
+.action-btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+/* Nút TikTok – hover màu trắng/sáng */
+.tiktok-btn:hover { color: #ffffff; }
+
+/* Nút Audio – icon stop ẩn mặc định */
+.audio-btn .icon-stop  { display: none; }
+.audio-btn .icon-play  { display: block; }
+
+/* Khi đang phát: đổi icon + màu */
+.member-card.playing .audio-btn .icon-stop { display: block; }
+.member-card.playing .audio-btn .icon-play { display: none; }
+
+.member-card.playing .audio-btn {
+  background: color-mix(in srgb, var(--member-color) 20%, transparent);
+  border-color: color-mix(in srgb, var(--member-color) 50%, transparent);
+  color: var(--member-color);
+}
+
+/* ----------------------------------------------------------------
+   8. COMMENT SECTION
+---------------------------------------------------------------- */
+.comment-section {
+  position: relative;
+  z-index: 10;
+  padding: 0 1.5rem var(--section-gap);
+}
+
+.comment-wrapper {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Nhóm label + input */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Input & Textarea dùng chung class .form-input */
+.form-input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  resize: none;
+}
+
+.form-input::placeholder { color: var(--text-dim); }
+
+.form-input:focus {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.25);
+  box-shadow: 0 0 0 3px rgba(189, 147, 249, 0.12);
+}
+
+.form-textarea { min-height: 110px; }
+
+/* Nút gửi */
+.submit-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--bg);
+  background: linear-gradient(135deg, #ff79c6 0%, #bd93f9 50%, #8be9fd 100%);
+  background-size: 200% auto;
+  border: none;
+  border-radius: 999px;
+  padding: 0.65em 1.6em;
+  cursor: pointer;
+  transition:
+    background-position 0.4s,
+    transform 0.2s var(--ease),
+    opacity 0.2s;
+}
+.submit-btn:hover:not(:disabled) {
+  background-position: right center;
+  transform: translateY(-2px);
+}
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-arrow { font-size: 1.1em; transition: transform 0.2s; }
+.submit-btn:hover .btn-arrow { transform: translateX(3px); }
+
+/* Thông báo thành công (ẩn mặc định) */
+.form-success {
+  font-size: 0.82rem;
+  color: #50fa7b;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+.form-success.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----------------------------------------------------------------
+   9. FOOTER
+---------------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.footer-sub {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+/* ----------------------------------------------------------------
+   10. RESPONSIVE – Tablet trở lên (≥ 540px)
+---------------------------------------------------------------- */
+@media (min-width: 540px) {
+  .blob { opacity: 0.5; }
+
+  .card-info {
+    padding: 1rem 1.5rem 1.25rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .card-name-row { flex: 1 1 auto; }
+  .card-meta     { flex: 0 0 auto; }
+  .card-actions  { flex: 0 0 auto; margin-top: 0; }
+}
+
+/* ----------------------------------------------------------------
+   11. RESPONSIVE – Desktop (≥ 768px)
+---------------------------------------------------------------- */
+@media (min-width: 768px) {
+  :root { --card-width: 88%; }
+
+  .site-header { padding: 6rem 2rem 3.5rem; }
+
+  .card-image-wrap { aspect-ratio: 16 / 6; }
+
+  .blob-1 { width: 600px; height: 600px; }
+  .blob-2 { width: 520px; height: 520px; }
+  .blob-3 { width: 480px; height: 480px; }
+}
+
+/* ----------------------------------------------------------------
+   12. ACCESSIBILITY – Không chơi animation nếu user cài đặt vậy
+---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .blob,
+  .wave-visualizer .bar,
+  .title-main {
+    animation: none !important;
+  }
+  .title-main {
+    background-position: 0 center;
+  }
+}

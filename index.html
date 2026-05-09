@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LZPPClub – Hội Người Lười | Team Cover TikTok" />
+  <meta name="theme-color" content="#0a0a14" />
+
+  <title>LZPPClub – Hội Người Lười</title>
+
+  <!-- Google Fonts: Syne (display) + Outfit (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =====================================================
+       BLOBS NỀN LOANG LỔ (ANIMATED MESH GRADIENT)
+       6 khối màu mờ di chuyển chậm tạo hiệu ứng rainbow
+  ====================================================== -->
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="blob blob-1"></div> <!-- Hồng neon       -->
+    <div class="blob blob-2"></div> <!-- Cam nhạt        -->
+    <div class="blob blob-3"></div> <!-- Xanh dương      -->
+    <div class="blob blob-4"></div> <!-- Xanh lá mint    -->
+    <div class="blob blob-5"></div> <!-- Tím lavender    -->
+    <div class="blob blob-6"></div> <!-- Vàng nhạt       -->
+  </div>
+
+  <!-- =====================================================
+       HEADER – TÊN TEAM & THÔNG TIN
+  ====================================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="header-eyebrow">✦ Team Cover TikTok ✦</span>
+
+      <h1 class="site-title">
+        <span class="title-main">LZPPClub</span>
+        <span class="title-sub">Hội Người Lười</span>
+      </h1>
+
+      <p class="site-tagline">"No laziest, only lazier"</p>
+
+      <div class="header-meta">
+        <!-- Ngày thành lập – kỷ niệm -->
+        <span class="founded-badge">Founded: 24/08/2024</span>
+
+        <!-- Link TikTok chính thức của team -->
+        <a class="tiktok-main-link"
+           href="https://www.tiktok.com/@lzppclub.cover"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Trang TikTok chính thức của LZPPClub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88
+                     2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01
+                     a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34
+                     6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/>
+          </svg>
+          @lzppclub.cover
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       NỘI DUNG CHÍNH
+  ====================================================== -->
+  <main>
+
+    <!-- ---------------------------------------------------
+         SECTION: DANH SÁCH THÀNH VIÊN
+         Card được render động bởi script.js từ mảng members[]
+    ---------------------------------------------------- -->
+    <section class="members-section" aria-label="Danh sách thành viên">
+      <h2 class="section-title">
+        <span class="section-title-text">Thành Viên</span>
+        <span class="section-title-line" aria-hidden="true"></span>
+      </h2>
+
+      <!--
+        ► JavaScript sẽ inject các thẻ <article class="member-card">
+          vào div này khi trang load.
+        ► Để thêm/bớt/sửa thành viên → chỉnh mảng members[] trong script.js
+      -->
+      <div class="members-list" id="membersList" role="list"></div>
+    </section>
+
+    <!-- ---------------------------------------------------
+         SECTION: FORM COMMENT (Formspree)
+    ---------------------------------------------------- -->
+    <section class="comment-section" aria-label="Gửi lời nhắn">
+      <h2 class="section-title">
+        <span class="section-title-text">Lời Nhắn</span>
+        <span class="section-title-line" aria-hidden="true"></span>
+      </h2>
+
+      <div class="comment-wrapper">
+        <!--
+          ╔══════════════════════════════════════════════════╗
+          ║  ⚠️  THAY ID FORMSPREE TẠI ĐÂY  ⚠️             ║
+          ║  1. Vào https://formspree.io và đăng ký          ║
+          ║  2. Tạo form mới → chọn email nhận               ║
+          ║  3. Copy ID dạng: xbljabcd                       ║
+          ║  4. Thay "FORMSPREE_ID" trong action bên dưới    ║
+          ║     Ví dụ: action="https://formspree.io/f/xabc"  ║
+          ╚══════════════════════════════════════════════════╝
+        -->
+        <form class="comment-form"
+              id="commentForm"
+              action="https://formspree.io/f/FORMSPREE_ID"
+              method="POST"
+              novalidate>
+
+          <div class="form-group">
+            <label class="form-label" for="senderName">Tên của bạn</label>
+            <input class="form-input"
+                   type="text"
+                   id="senderName"
+                   name="name"
+                   placeholder="Nhập tên..."
+                   required
+                   autocomplete="off" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="senderMsg">Nội dung</label>
+            <textarea class="form-input form-textarea"
+                      id="senderMsg"
+                      name="message"
+                      placeholder="Viết điều gì đó thật dễ thương... hoặc không 🥱"
+                      rows="4"
+                      required></textarea>
+          </div>
+
+          <button class="submit-btn" type="submit">
+            <span class="btn-label">Gửi đi</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+
+          <!-- Thông báo gửi thành công (hiện khi submit OK) -->
+          <p class="form-success" id="formSuccess" aria-live="polite">
+            ✓ Đã gửi! Cảm ơn bạn 💌
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer">
+    <p class="footer-copy">© 2024 LZPPClub – Hội Người Lười</p>
+    <p class="footer-sub">Made with a little too much laziness 🥱</p>
+  </footer>
+
+  <!-- Script chính -->
+  <script src="script.js"></script>
+
+</body>
+</html>
